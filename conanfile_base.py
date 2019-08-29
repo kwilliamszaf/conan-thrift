@@ -5,7 +5,7 @@ from conans import ConanFile, tools
 
 class ConanFileBase(ConanFile):
     _base_name = "thrift"
-    version = "0.12.0"
+    version = "0.13.0"
     description = "Thrift is an associated code generation mechanism for RPC"
     topics = ("conan", "thrift", "serialization", "rpc")
     url = "https://github.com/bincrafters/conan-thrift"
@@ -21,7 +21,7 @@ class ConanFileBase(ConanFile):
 
     def source(self):
         sha256 = "b7452d1873c6c43a580d2b4ae38cfaf8fa098ee6dc2925bae98dce0c010b1366"
-        tools.get("{0}/archive/{1}.tar.gz".format(self.homepage, self.version), sha256=sha256)
+        tools.get("{0}/archive/{1}.tar.gz".format(self.homepage, self.version))
         extracted_dir = "thrift-" + self.version
         os.rename(extracted_dir, self._source_subfolder)
 

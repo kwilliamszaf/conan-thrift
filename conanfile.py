@@ -51,6 +51,11 @@ class ConanFileDefault(ConanFileBase):
         "with_plugin": False
     }
 
+    def source(self):
+        self.run("mkdir source_subfolder")
+        self.run("git clone https://github.com/apache/thrift.git source_subfolder")
+        self.run("cd source_subfolder && git checkout master")
+
     def config_options(self):
         if self.settings.os == 'Windows':
             del self.options.fPIC
@@ -89,7 +94,7 @@ class ConanFileDefault(ConanFileBase):
         cmake.definitions["WITH_STATIC_LIB"] = not self.options.shared
         cmake.definitions["BOOST_ROOT"] = self.deps_cpp_info['boost'].rootpath
         cmake.definitions["BUILD_TESTING"] = False
-        cmake.definitions["BUILD_COMPILER"] = False
+        cmake.definitions["BUILD_COMPILER"] = True 
         cmake.definitions["BUILD_LIBRARIES"] = True
         cmake.definitions["BUILD_EXAMPLES"] = False
         cmake.definitions["BUILD_TUTORIALS"] = False
