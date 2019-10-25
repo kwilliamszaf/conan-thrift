@@ -9,6 +9,7 @@ class ThriftConan(ConanBase):
     name = "thrift"
     version = ConanBase.version
     settings = "os", "arch", "compiler", "build_type"
+    generators = "cmake"
     options = {
         "shared": [True, False],
         "fPIC": [True, False],
