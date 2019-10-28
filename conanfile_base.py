@@ -18,9 +18,9 @@ class ConanBase(ConanFile):
     _build_subfolder = "build_subfolder"
 
     def source(self):
-        sha256 = "b7452d1873c6c43a580d2b4ae38cfaf8fa098ee6dc2925bae98dce0c010b1366"
-        tools.get("{0}/archive/{1}.tar.gz".format(self.homepage, self.version), sha256=sha256)
-        extracted_dir = "thrift-" + self.version
+        self.run("git clone git@github.com:kwilliamszaf/thrift.git")
+        self.run("cd thrift && git checkout 0.12.0")
+        extracted_dir = "thrift"
         os.rename(extracted_dir, self._source_subfolder)
 
     def build(self):

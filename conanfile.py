@@ -10,6 +10,7 @@ class ThriftConan(ConanBase):
     version = ConanBase.version
     settings = "os", "arch", "compiler", "build_type"
     generators = "cmake"
+    requires = "boost/1.69.0@vastech/stable"
     options = {
         "shared": [True, False],
         "fPIC": [True, False],
@@ -37,7 +38,7 @@ class ThriftConan(ConanBase):
         "with_libevent": True,
         "with_qt4": False,
         "with_qt5": False,
-        "with_openssl": True,
+        "with_openssl": False,
         "with_boost_functional": False,
         "with_boost_smart_ptr": False,
         "with_boost_static": False,
