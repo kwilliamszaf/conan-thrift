@@ -4,7 +4,7 @@ from conans import ConanFile, tools
 
 
 class ConanBase(ConanFile):
-    version = "0.14.0"
+    version = "0.12.0"
     description = "Thrift is an associated code generation mechanism for RPC"
     url = "https://github.com/bincrafters/conan-thrift"
     homepage = "https://github.com/apache/thrift"
@@ -19,7 +19,7 @@ class ConanBase(ConanFile):
 
     def source(self):
         self.run("git clone git@github.com:kwilliamszaf/thrift.git")
-        self.run("cd thrift && git checkout master")
+        self.run("cd thrift && git checkout v0.12.0")
         extracted_dir = "thrift"
         os.rename(extracted_dir, self._source_subfolder)
 
